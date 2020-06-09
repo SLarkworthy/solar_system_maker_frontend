@@ -16,9 +16,30 @@
             <a href="#">test</a>
             <a href="#">test</a>
         </div>
-        
+
         <main>
-            <div class="ss-container"></div>
+            <div class="ss-container">
+                <h2>Create a new solar system!</h2>
+                <form id="new-solar-system-form">
+                    <label for="ss-name">Name your solar system: </label>
+                    <input type="text" name="ss-name" id="ss-name">
+                    <label for="sun-name">Name your sun: </label>
+                    <input type="text" name="sun-name" id="sun-name">
+
+                    <label for="spectrum">Choose your star's spectral type</label>
+                    <select id="spectrum" name="spectrum">
+                        <option value="O">O</option>
+                        <option value="B">B</option>
+                        <option value="A">A</option>
+                        <option value="F">F</option>
+                        <option value="G">G</option>
+                        <option value="K">K</option>
+                        <option value="M">M</option>
+                    </select>
+
+                    <input id="creeate-button" type="submit" name="submit" value="Generate my solar system!">
+                </form>
+            </div>
         </main>
         <footer></footer>
     </body>
