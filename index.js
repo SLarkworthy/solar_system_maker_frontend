@@ -23,10 +23,10 @@ function saveSolarSystem(ssName) {
     })
     .then(response => response.json())
     .then(solarSystem => {
-        console.log(solarSystem.id) //get ss id
-        //then fetch a single solar system
-        //then send that to render
+        //send to render
+        //maybe clear the dom first so you're only fetching 1
     })
+
 }
  
 
