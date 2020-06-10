@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const sunSpectrum = document.querySelector("#spectrum").value;
         saveSolarSystem(ssName);
     })
+
+    getSolarSystems()
 })
 
 function saveSolarSystem(ssName) {
@@ -36,18 +38,13 @@ function getSolarSystems() {
     .then(response => response.json())
     .then(solarSystems => {
         document.querySelector("main").innerHTML = "";
-        solarSystems.data.forEach(solarSystem => renderSolarSystem(solarSystem));
+
+        solarSystems.data.forEach(solarSystem => {
+            let newSolarSystem = new SolarSystem(solarSystem)
+            newSolarSystem.renderSolarSystem();
+        });
     })
 }
 
-function renderSolarSystem(solarSystem) {
-    const main = document.querySelector("main");
-    let div = document.createElement("div");
 
-    div.setAttribute("class", "ss-container");
-    div.innerHTML = `<h2>${solarSystem.attributes.name}</h2>
-    <h3>${solarSystem.attributes.star.name}</h3>`
-
-    main.appendChild(div);
-}
 
