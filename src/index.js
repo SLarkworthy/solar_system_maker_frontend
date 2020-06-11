@@ -58,12 +58,25 @@ function renderStarForm(solarSystemID) {
         e.preventDefault();
         const sunName = document.querySelector("#sun-name").value;
         const sunSpectrum = document.querySelector("#spectrum").value;
-        console.log(solarSystemID);
+        saveSun(sunName, sunSpectrum, solarSystemID);
     })
-
 }
  
-
+function saveSun(sunName, sunSpectrum, solarSystemID) {
+    fetch(`${BASE}/stars`, {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            name: sunName,
+            spectral_type: sunSpectrum,
+            solar_system_id: solarSystemID
+        })
+    })
+    .then(response => response.json())
+    .then(obj => {
+        console.log(obj);
+    })
+}
 
 function getSolarSystems() {
     fetch(`${BASE}/solar_systems`)
