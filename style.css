@@ -44,3 +44,7 @@ h1 {
 #sidebar a:hover {
     background-color: #f1f1f1;
 }
+
+.hidden {
+    display: none;
+}
