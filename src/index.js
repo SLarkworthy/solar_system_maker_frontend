@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomeBtn = document.querySelector("#new-ss-btn");
     welcomeBtn.addEventListener("click", () => renderSSForm());
     
+    const indexBtn = document.querySelector("#ss-index");
+    indexBtn.addEventListener("click", () => getSolarSystems());
 })
 
 function renderSSForm() {

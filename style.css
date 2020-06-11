@@ -2,7 +2,8 @@ div.ss-container {
     width: 750px;
     height: 495px;
     box-shadow: 0 0 2pt 1px;
-  
+    position: relative;
+    font-size: 16px;
 }
 
 main {
@@ -48,3 +49,74 @@ h1 {
 .hidden {
     display: none;
 }
+
+.space {
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9c209a40-0586-4f75-83fe-31faec2fe5e7/dcwwm5v-ef9451e7-4923-46a4-9ee1-f8ca533888e3.png/v1/fill/w_1231,h_649,q_70,strp/free_starfield_background_by_wholock982_dcwwm5v-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0yMTYwIiwicGF0aCI6IlwvZlwvOWMyMDlhNDAtMDU4Ni00Zjc1LTgzZmUtMzFmYWVjMmZlNWU3XC9kY3d3bTV2LWVmOTQ1MWU3LTQ5MjMtNDZhNC05ZWUxLWY4Y2E1MzM4ODhlMy5wbmciLCJ3aWR0aCI6Ijw9NDA5NiJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.oiUdKU2TydOYONg9WQoh0JQaWJ7o1vqaPISE5l_CrLQ);
+    background-color: black;
+}
+
+.space > h1, h2, h3, h4, h5, p {
+    color: white;
+}
+
+.star {
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    width: 5em;
+    height: 5em;
+    margin-top: -.5em;
+    margin-left: -.5em;
+    border-radius: 50%;
+    background-color: #FB7209;
+    z-index: 1;
+  }
+
+  .star.O {
+    background-color: rgb(204, 255, 255);
+    box-shadow: 0 0 60px 10px rgb(217, 242, 242);
+  }
+
+  .star.B {
+    background-color: rgb(212, 247, 247);
+    box-shadow: 0 0 50px 10px rgb(221, 238, 238, 0.8);
+    width: 4em;
+    height: 4em;
+  }
+
+  .star.A {
+    background-color: rgb(229, 255, 255);
+    box-shadow: 0 0 40px 10px rgb(237, 248, 248, 0.7);
+    width: 3.5em;
+    height: 3.5em;
+  }
+
+  .star.F {
+    background-color: rgb(234, 251, 247);
+    box-shadow: 0 0 35px 10px rgb(240, 245, 244, 0.6);
+    width: 3em;
+    height: 3em;
+  }
+
+  .star.G {
+    background-color: rgb(255, 224, 102);
+    box-shadow: 0 0 35px 10px rgb(223, 223, 159, 0.5);
+    width: 2.5em;
+    height: 2.5em;
+  }
+
+  .star.K {
+    box-shadow: 0 0 30px 8px rgba(255, 160, 60, 0.5);
+    width: 2em;
+    height: 2em;
+  }
+
+  .star.M {
+    background-color: rgb(255, 64, 0);
+    box-shadow: 0 0 25px 8px rgb(209, 125, 97, 0.4);
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+
+ 
