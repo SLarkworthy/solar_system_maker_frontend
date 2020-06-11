@@ -4,16 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
    
     const welcomeBtn = document.querySelector("#new-ss-btn");
     welcomeBtn.addEventListener("click", () => renderSSForm());
-
-    const form = document.querySelector("#new-solar-system-form");
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const ssName = document.querySelector("#ss-name").value;
-        const sunName = document.querySelector("#sun-name").value;
-        const sunSpectrum = document.querySelector("#spectrum").value;
-        
-    })
-
     
 })
 
@@ -73,8 +63,21 @@ function saveSun(sunName, sunSpectrum, solarSystemID) {
         })
     })
     .then(response => response.json())
-    .then(obj => {
-        console.log(obj);
+    .then(star => {
+        const ssID = star.data.attributes.solar_system_id;
+        getSolarSystem(ssID);
+    })
+}
+
+function getSolarSystem(solarSystemID) {
+    fetch(`${BASE}/solar_systems/${solarSystemID}`)
+    .then(response => response.json())
+    .then(solarSystem => {
+        document.querySelector("main").innerHTML = "";
+
+        let newSolarSystem = new SolarSystem(solarSystem.data)
+        newSolarSystem.renderSolarSystem();
+        
     })
 }
 
