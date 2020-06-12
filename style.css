@@ -55,8 +55,12 @@ h1 {
     background-color: black;
 }
 
-.space > h1, h2, h3, h4, h5, p {
+.space>h1, .space>h2, .space>h3, .space>h4, .space>h5, .space>p {
     color: white;
+}
+
+.og>h1, .og>h2, .og>h3, .og>h4, .og>h5, .og>p {
+    color: black;
 }
 
 .star {

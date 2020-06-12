@@ -67,7 +67,80 @@ function saveSun(sunName, sunSpectrum, solarSystemID) {
     .then(response => response.json())
     .then(star => {
         const ssID = star.data.attributes.solar_system_id;
-        getSolarSystem(ssID);
+        // getSolarSystem(ssID);
+        renderPlanetNumberForm(ssID);
+    })
+}
+
+function renderPlanetNumberForm(ssID) {
+    const sunForm = document.querySelector("#sun-form-container");
+    sunForm.setAttribute("class", "hidden");
+
+    const planetNumerContainer = document.querySelector("#planet-number-container");
+    planetNumerContainer.setAttribute("class", "");
+
+    const planetNumberBtn = document.querySelector("#p-number-button");
+    planetNumberBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        
+        const planetNumberString = (function() {
+            const radioNumbers = document.getElementsByName('number');
+            for (let i=0; i < radioNumbers.length; i++){
+                if (radioNumbers[i].checked) {
+                    return radioNumbers[i].value;
+                }
+            }
+        })()
+
+        const planetNumber = parseInt(planetNumberString);
+        renderPlanetForm(ssID, planetNumber);
+    })
+}
+
+function renderPlanetForm(ssID, planetNumber, count=0) {
+    const planetNumerContainer = document.querySelector("#planet-number-container");
+    planetNumerContainer.setAttribute("class", "hidden");
+
+    const planetFormCon = document.querySelector("#planet-form-container");
+    planetFormCon.setAttribute("class", "");
+
+    const planetForm = document.querySelector("#new-planet-form");
+    planetForm.reset();
+    document.querySelector('#create-planet-button').removeAttribute("disabled");
+
+    const num = document.querySelector("span#p-number");
+    num.innerText = (count + 1);
+
+        planetForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const planetName = document.querySelector("#planet-name").value;
+            const composition = document.querySelector("#composition").value;
+            const size = document.querySelector("#size").value;
+            const rings = document.querySelector("#rings").checked;
+
+            if (planetName !== "") {
+                document.querySelector('#create-planet-button').setAttribute('disabled', 'disabled');
+                if (count < planetNumber-1) {
+                    savePlanet(planetName, composition, size, rings, ssID);
+                    count++;
+                    renderPlanetForm(ssID, planetNumber, count)
+                } else {
+                    getSolarSystem(ssID)
+            }}
+        })
+}
+
+function savePlanet(planetName, composition, size, rings, ssID) {
+    fetch(`${BASE}/planets`, {
+        method: 'POST',
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            name: planetName,
+            composition: composition,
+            size: size,
+            rings: rings,
+            solar_system_id: ssID
+        })
     })
 }
 

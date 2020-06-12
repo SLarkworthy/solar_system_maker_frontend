@@ -20,11 +20,12 @@
         </div>
 
         <main>
-            <div class="ss-container">
+            <div class="ss-container og">
                 <div id="welcome">
                     <h1>Welcome to your solar system generator!</h1>
                     <button id="new-ss-btn">Start a new solar system</button>
                 </div>
+                
                 <div id="ss-form-container" class="hidden">
                    <h2>Create a new solar system!</h2>
                     <form id="new-solar-system-form">
@@ -33,6 +34,7 @@
                         <input id="create-button" type="submit" name="submit" value="Save name!">
                     </form>
                 </div>
+
                 <div id="sun-form-container" class="hidden">
                     <h2>Now create your sun</h2>
                     <form id="new-sun-form">
@@ -53,30 +55,52 @@
                         <input id="create-sun-button" type="submit" name="submit" value="Submit my sun">
                     </form>
                  </div>
-            </div>
 
-            <!-- <div class="ss-container">
-                <h2>Create a new solar system!</h2>
-                <form id="new-solar-system-form">
-                    <label for="ss-name">Name your solar system: </label>
-                    <input type="text" name="ss-name" id="ss-name">
-                    <label for="sun-name">Name your sun: </label>
-                    <input type="text" name="sun-name" id="sun-name">
+                 <div id="planet-number-container" class="hidden">
+                    <h2>How many planets would you like?</h2>
+                    <form id="planet-number-form">
+                        <input type="radio" id="number1" name="number" value="1" checked>
+                        <label for="number1">1</label>
+                        <input type="radio" id="number2" name="number" value="2">
+                        <label for="number2">2</label>
+                        <input type="radio" id="number3" name="number" value="3">
+                        <label for="number3">3</label>
+                        <input type="radio" id="number4" name="number" value="4">
+                        <label for="number4">4</label>
+                        <input type="radio" id="number5" name="number" value="5">
+                        <label for="number5">5</label>
+                        <input id="p-number-button" type="submit" name="submit" value="Submit Number!">
+                    </form>
+                 </div>
 
-                    <label for="spectrum">Choose your star's spectral type</label> -->
-                    <!-- <select id="spectrum" name="spectrum">
-                        <option value="O">O</option>
-                        <option value="B">B</option>
-                        <option value="A">A</option>
-                        <option value="F">F</option>
-                        <option value="G">G</option>
-                        <option value="K">K</option>
-                        <option value="M">M</option>
-                    </select>
+                 <div id="planet-form-container" class="hidden">
+                    <h2>Now add planet number <span id="p-number">test</span>!</h2>
+                     <form id="new-planet-form">
+                        <label for="planet-name">Name your planet: </label>
+                        <input type="text" name="planet-name" id="planet-name">
 
-                    <input id="creeate-button" type="submit" name="submit" value="Generate my solar system!">
-                </form>
-            </div> -->
+                        <label for="composition">Choose your planet's composition</label>
+                        <select id="composition" name="composition">
+                            <option value="rocky">Rocky</option>
+                            <option value="earth-like">Earth-like</option>
+                            <option value="gaseous">Gaseous</option>
+                            <option value="icy">Icy</option>
+                        </select>
+
+                        <label for="size">Choose your planet's size</label>
+                        <select id="size" name="size">
+                            <option value="small">Small</option>
+                            <option value="medium">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+
+                        <input type="checkbox" id="rings" name="rings" value="true">
+                        <label for="rings">Add rings around this planet</label>
+
+                        <input id="create-planet-button" type="submit" name="submit" value="Save planet!">
+                     </form>
+                 </div>
+            </div>  
         </main>
         <footer></footer>
     </body>
