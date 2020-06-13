@@ -67,7 +67,7 @@ function saveSun(sunName, sunSpectrum, solarSystemID) {
     .then(response => response.json())
     .then(star => {
         const ssID = star.data.attributes.solar_system_id;
-        // getSolarSystem(ssID);
+        
         renderPlanetNumberForm(ssID);
     })
 }
@@ -97,7 +97,9 @@ function renderPlanetNumberForm(ssID) {
     })
 }
 
+
 function renderPlanetForm(ssID, planetNumber, count=0) {
+    
     const planetNumerContainer = document.querySelector("#planet-number-container");
     planetNumerContainer.setAttribute("class", "hidden");
 
@@ -120,15 +122,23 @@ function renderPlanetForm(ssID, planetNumber, count=0) {
 
             if (planetName !== "") {
                 document.querySelector('#create-planet-button').setAttribute('disabled', 'disabled');
-                if (count < planetNumber-1) {
+                if (planetNumber === 1) {
+                    savePlanet(planetName, composition, size, rings, ssID);
+                    
+                    setTimeout(function(){ getSolarSystem(ssID) }, 1000);
+                } else if (count === (planetNumber - 1)) {
+                    
+                    setTimeout(function(){ getSolarSystem(ssID) }, 1000);
+                } else {
                     savePlanet(planetName, composition, size, rings, ssID);
                     count++;
-                    renderPlanetForm(ssID, planetNumber, count)
-                } else {
-                    getSolarSystem(ssID)
-            }}
+                    renderPlanetForm(ssID, planetNumber, count);
+                }
+                }
         })
 }
+
+    
 
 function savePlanet(planetName, composition, size, rings, ssID) {
     fetch(`${BASE}/planets`, {
@@ -142,6 +152,10 @@ function savePlanet(planetName, composition, size, rings, ssID) {
             solar_system_id: ssID
         })
     })
+    .then(response => response.json())
+    .then(planet => {
+       
+    });
 }
 
 function getSolarSystem(solarSystemID) {

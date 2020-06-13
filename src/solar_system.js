@@ -3,6 +3,7 @@ class SolarSystem {
         this.id = solarSystem.id;
         this.name = solarSystem.attributes.name;
         this.star = solarSystem.attributes.star;
+        this.planets = solarSystem.attributes.planets;
         SolarSystem.all.push(this);
     }
 
@@ -19,6 +20,12 @@ class SolarSystem {
 
         let newStar = new Star(this.star)
         newStar.renderStar();
+
+        for (let i=0; i < this.planets.length; i++) {
+            const NUMS = ["first", "second", "third", "fourth", "fifth"];
+            let newPlanet = new Planet(this.planets[i], NUMS[i]);
+            newPlanet.renderPlanet();
+        }
     }
 }
 

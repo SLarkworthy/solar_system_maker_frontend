@@ -8,7 +8,7 @@ class Star {
     }
 
     renderStar() {
-        const ssDiv = document.querySelector(`[data-id="${this.id}"]`);
+        const ssDiv = document.querySelector(`[data-id="${this.solar_system_id}"]`);
         const starDiv = document.createElement("div");
     
         starDiv.setAttribute("class", `star ${this.spectral_type}`);
