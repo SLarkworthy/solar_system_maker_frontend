@@ -65,20 +65,19 @@ h1 {
 
 .star {
     position: absolute;
-    top: 45%;
-    left: 45%;
-    width: 5em;
-    height: 5em;
-    margin-top: -.5em;
-    margin-left: -.5em;
+    top: 50%;
+    left: 40%;
     border-radius: 50%;
-    background-color: #FB7209;
-    z-index: 1;
+    z-index: 2;
   }
 
   .star.O {
     background-color: rgb(204, 255, 255);
     box-shadow: 0 0 60px 10px rgb(217, 242, 242);
+    width: 5em;
+    height: 5em;
+    margin-top: -2.5em;
+    margin-left: -2.5em;
   }
 
   .star.B {
@@ -86,6 +85,8 @@ h1 {
     box-shadow: 0 0 50px 10px rgb(221, 238, 238, 0.8);
     width: 4em;
     height: 4em;
+    margin-top: -2em;
+    margin-left: -2em;
   }
 
   .star.A {
@@ -93,6 +94,8 @@ h1 {
     box-shadow: 0 0 40px 10px rgb(237, 248, 248, 0.7);
     width: 3.5em;
     height: 3.5em;
+    margin-top: -1.75em;
+    margin-left: -1.75em;
   }
 
   .star.F {
@@ -100,6 +103,8 @@ h1 {
     box-shadow: 0 0 35px 10px rgb(240, 245, 244, 0.6);
     width: 3em;
     height: 3em;
+    margin-top: -1.5em;
+    margin-left: -1.5em;
   }
 
   .star.G {
@@ -107,12 +112,17 @@ h1 {
     box-shadow: 0 0 35px 10px rgb(223, 223, 159, 0.5);
     width: 2.5em;
     height: 2.5em;
+    margin-top: -1.25em;
+    margin-left: -1.25em;
   }
 
   .star.K {
+    background-color: #FB7209;
     box-shadow: 0 0 30px 8px rgba(255, 160, 60, 0.5);
     width: 2em;
     height: 2em;
+    margin-top: -1em;
+    margin-left: -1em;
   }
 
   .star.M {
@@ -120,7 +130,206 @@ h1 {
     box-shadow: 0 0 25px 8px rgb(209, 125, 97, 0.4);
     width: 1.5em;
     height: 1.5em;
+    margin-top: -0.75em;
+    margin-left: -0.75em;
   }
 
 
- 
+  .orbit {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    border-radius: 50%;
+    z-index: 1;
+    border: 1px solid rgb(255, 255, 255, 0.4);
+  }
+
+  .orbit.first {
+    width: 8em;
+    height: 8em;
+    margin-top: -4em;
+    margin-left: -4em;
+  }
+  .orbit.second {
+    width: 12em;
+    height: 12em;
+    margin-top: -6em;
+    margin-left: -6em;
+  }
+  .orbit.third {
+    width: 16em;
+    height: 16em;
+    margin-top: -8em;
+    margin-left: -8em;
+  }
+  .orbit.fourth {
+    width: 20em;
+    height: 20em;
+    margin-top: -10em;
+    margin-left: -10em;
+  }
+  .orbit.fifth {
+    width: 24em;
+    height: 24em;
+    margin-top: -12em;
+    margin-left: -12em;
+  }
+  
+
+  .planet {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    border-radius: 50%;
+    z-index: 10;
+    
+    
+    background-color: orange;
+    box-shadow: inset 1em 0 0.5em rgba(26, 17, 17, 0.4);
+  }
+
+  .planet.large {
+    width: 2em;
+    height: 2em;
+    margin-top: -1em;
+  }
+  .rings.large {
+    height: 1em;
+    width: 3em;
+    margin-top: -0.75em;
+  }
+  .planet.first.large {
+    margin-left: -5em;
+  }
+  .rings.large.first {
+    margin-left: -5.75em;
+  }
+  .planet.second.large {
+    margin-left: -7em;
+  }
+  .rings.large.second {
+    margin-left: -7.75em;
+  }
+  .planet.third.large {
+    margin-left: -9em;
+  }
+  .rings.large.third {
+    margin-left: -9.75em;
+  }
+  .planet.fourth.large {
+    margin-left: -11em;
+  }
+  .rings.large.fourth {
+    margin-left: -11.75em;
+  }
+  .planet.fifth.large {
+    margin-left: -13em;
+  }
+  .rings.large.fifth {
+    margin-left: -13.75em;
+  }
+
+  .planet.medium {
+    width: 1.5em;
+    height: 1.5em;
+    margin-top: -0.75em;
+  }
+  .rings.medium {
+    height: 0.75em;
+    width: 2.25em;
+    margin-top: -0.625em;
+  }
+  .planet.first.medium {
+    margin-left: -4.75em;
+  }
+  .rings.medium.first {
+    margin-left: -5.325em;
+  }
+  .planet.second.medium {
+    margin-left: -6.75em;
+  }
+  .rings.medium.second {
+    margin-left: -7.325em;
+  }
+  .planet.third.medium {
+    margin-left: -8.75em;
+  }
+  .rings.medium.third {
+    margin-left: -9.325em;
+  }
+  .planet.fourth.medium {
+    margin-left: -10.75em;
+  }
+  .rings.medium.fourth {
+    margin-left: -11.325em;
+  }
+  .planet.fifth.medium {
+    margin-left: -12.75em;
+  }
+  .rings.medium.fifth {
+    margin-left: -13.325em;
+  }
+
+  .planet.small {
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+  }
+  .rings.small {
+    height: 0.5em;
+    width: 1.5em;
+    margin-top: -0.5em;
+  }
+  .planet.first.small {
+    margin-left: -4.5em;
+  }
+  .rings.small.first {
+    margin-left: -5em;
+  }
+  .planet.second.small {
+    margin-left: -6.5em;
+  }
+  .rings.small.second {
+    margin-left: -7em;
+  }
+  .planet.third.small {
+    margin-left: -8.5em;
+  }
+  .rings.small.third {
+    margin-left: -9em;
+  }
+  .planet.fourth.small {
+    margin-left: -10.5em;
+  }
+  .rings.small.fourth {
+    margin-left: -11em;
+  }
+  .planet.fifth.small {
+    margin-left: -12.5em;
+  }
+  .rings.small.fifth {
+    margin-left: -13em;
+  }
+  
+  .planet.gaseous {
+    background-color: orange;
+  }
+  .planet.rocky {
+    background-color: red;
+  }
+  .planet.earth-like {
+    background-color: blue;
+  }
+  .planet.icy {
+    background-color: lightblue;
+  }
+
+  .rings {
+    background: none;
+    border: 4px solid rgba(238, 118, 48, 0.3);
+    transform: rotate(45deg);
+    box-shadow: none;
+  }
+
+  
+  
