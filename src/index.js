@@ -106,41 +106,35 @@ function renderPlanetForm(ssID, planetNumber, count=0) {
     const planetFormCon = document.querySelector("#planet-form-container");
     planetFormCon.setAttribute("class", "");
 
-    const planetForm = document.querySelector("#new-planet-form");
-    planetForm.reset();
-    document.querySelector('#create-planet-button').removeAttribute("disabled");
-
     const num = document.querySelector("span#p-number");
     num.innerText = (count + 1);
 
+        const planetForm = document.querySelector("#new-planet-form");
         planetForm.addEventListener("submit", (e) => {
             e.preventDefault();
+            const num = document.querySelector("span#p-number");
             const planetName = document.querySelector("#planet-name").value;
             const composition = document.querySelector("#composition").value;
             const size = document.querySelector("#size").value;
             const rings = document.querySelector("#rings").checked;
-
+            count = parseInt(num.innerText) - 1;
             if (planetName !== "") {
-                document.querySelector('#create-planet-button').setAttribute('disabled', 'disabled');
-                if (planetNumber === 1) {
-                    savePlanet(planetName, composition, size, rings, ssID);
-                    
-                    setTimeout(function(){ getSolarSystem(ssID) }, 1000);
-                } else if (count === (planetNumber - 1)) {
-                    
-                    setTimeout(function(){ getSolarSystem(ssID) }, 1000);
-                } else {
-                    savePlanet(planetName, composition, size, rings, ssID);
-                    count++;
-                    renderPlanetForm(ssID, planetNumber, count);
-                }
-                }
+                savePlanet(planetName, composition, size, rings, ssID, planetNumber, count);
+            }
         })
+}
+
+function resetForm(count) {
+    const planetForm = document.querySelector("#new-planet-form");
+    planetForm.reset();
+
+    const num = document.querySelector("span#p-number");
+    num.innerText = (count + 1);
 }
 
     
 
-function savePlanet(planetName, composition, size, rings, ssID) {
+function savePlanet(planetName, composition, size, rings, ssID, planetNumber, count) {
     fetch(`${BASE}/planets`, {
         method: 'POST',
         headers: {"Content-Type": "application/json"},
@@ -154,7 +148,13 @@ function savePlanet(planetName, composition, size, rings, ssID) {
     })
     .then(response => response.json())
     .then(planet => {
-       
+       count++
+       console.log(planet);
+       if (count === planetNumber) {
+            getSolarSystem(planet.solar_system_id);
+       } else {
+           resetForm(count);
+       }
     });
 }
 
