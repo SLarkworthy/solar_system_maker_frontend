@@ -149,7 +149,6 @@ function savePlanet(planetName, composition, size, rings, ssID, planetNumber, co
     .then(response => response.json())
     .then(planet => {
        count++
-       console.log(planet);
        if (count === planetNumber) {
             getSolarSystem(planet.solar_system_id);
        } else {

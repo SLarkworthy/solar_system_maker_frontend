@@ -13,8 +13,7 @@ class SolarSystem {
     
         div.setAttribute("class", "ss-container space");
         div.setAttribute("data-id", this.id);
-        div.innerHTML = `<h2>${this.name}</h2>
-        <h3>${this.star.name}</h3>`
+        div.innerHTML = `<h2>${this.name}</h2>`
     
         main.appendChild(div);
 
