@@ -61,8 +61,8 @@ h1 {
 
 .space h2 {
   text-align: center;
-  margin-left: -29%;
-  line-height: 200%;
+  line-height: 100%;
+  padding-top: 0.25em;
   font-size: 2em;
 }
 
@@ -79,7 +79,7 @@ ul {
 .star {
     position: absolute;
     top: 50%;
-    left: 35%;
+    left: 30%;
     border-radius: 50%;
     z-index: 2;
   }
@@ -147,11 +147,10 @@ ul {
     margin-left: -0.75em;
   }
 
-
   .orbit {
     position: absolute;
     top: 50%;
-    left: 35%;
+    left: 30%;
     border-radius: 50%;
     z-index: 1;
     border: 1px solid rgb(255, 255, 255, 0.4);
@@ -192,7 +191,7 @@ ul {
   .planet {
     position: absolute;
     top: 50%;
-    left: 35%;
+    left: 30%;
     border-radius: 50%;
     z-index: 10;
     
@@ -361,13 +360,14 @@ ul {
   .info {
     position: absolute;
     top: 20%;
-    left: 40%;
+    left: 45%;
     height: auto;
     width: 15em;
     border: 1px solid white;
     background-color: rgba(18, 25, 92, 0.7);
     z-index: 99;
     overflow: hidden;
+    font-size: 12px;
   }
 
   .orbit.selected {
