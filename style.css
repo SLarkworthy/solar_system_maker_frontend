@@ -59,14 +59,27 @@ h1 {
     color: white;
 }
 
+.space h2 {
+  text-align: center;
+  margin-left: -29%;
+  line-height: 200%;
+  font-size: 2em;
+}
+
 .og>h1, .og>h2, .og>h3, .og>h4, .og>h5, .og>p {
     color: black;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .star {
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 35%;
     border-radius: 50%;
     z-index: 2;
   }
@@ -138,7 +151,7 @@ h1 {
   .orbit {
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 35%;
     border-radius: 50%;
     z-index: 1;
     border: 1px solid rgb(255, 255, 255, 0.4);
@@ -179,7 +192,7 @@ h1 {
   .planet {
     position: absolute;
     top: 50%;
-    left: 40%;
+    left: 35%;
     border-radius: 50%;
     z-index: 10;
     
@@ -315,13 +328,13 @@ h1 {
     background-color: orange;
   }
   .planet.rocky {
-    background-color: red;
+    background-color: rgb(201, 25, 25);
   }
   .planet.earth-like {
-    background-color: blue;
+    background-color: rgb(22, 33, 190);
   }
   .planet.icy {
-    background-color: lightblue;
+    background-color: rgb(106, 194, 223);
   }
 
   .rings {
@@ -331,5 +344,33 @@ h1 {
     box-shadow: none;
   }
 
-  
-  
+  .names {
+    position: absolute;
+    top: 20%;
+    left: 65%;
+    height: auto;
+    width: 15em;
+  }
+
+  .names h3, .names li, .info h3, .info li {
+    text-align: center;
+    font-size: 180%;
+    color: rgb(144, 144, 214);
+  }
+
+  .info {
+    position: absolute;
+    top: 20%;
+    left: 40%;
+    height: auto;
+    width: 15em;
+    border: 1px solid white;
+    background-color: rgba(18, 25, 92, 0.7);
+    z-index: 99;
+    overflow: hidden;
+  }
+
+  .orbit.selected {
+    border: 2px solid rgb(255, 255, 255);
+  }
+
