@@ -15,10 +15,11 @@ class SolarSystem {
         div.setAttribute("data-id", this.id);
         div.innerHTML = `<h2>${this.name}</h2>`
     
-        main.appendChild(div);
-
-        let newStar = new Star(this.star)
-        newStar.renderStar();
+        if (this.star !== null && this.planets.length !== 0) {
+            main.appendChild(div);
+            let newStar = new Star(this.star)
+            newStar.renderStar();
+        }
 
         for (let i=0; i < this.planets.length; i++) {
             const NUMS = ["first", "second", "third", "fourth", "fifth"];
@@ -27,5 +28,6 @@ class SolarSystem {
         }
     }
 }
+
 
 SolarSystem.all = [];

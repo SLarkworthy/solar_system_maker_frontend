@@ -30,7 +30,7 @@
                 <div id="ss-form-container" class="hidden">
                     <form id="new-solar-system-form">
                         <label for="ss-name">Name your solar system: </label><br>
-                        <input type="text" name="ss-name" id="ss-name"><br>
+                        <input type="text" name="ss-name" id="ss-name" maxlength="40"><br>
                         <input id="create-button" type="submit" name="submit" value="Save name!">
                     </form>
                 </div>
@@ -38,7 +38,7 @@
                 <div id="sun-form-container" class="hidden">
                     <form id="new-sun-form">
                         <label for="sun-name" class=sun-name>Name your star: </label>
-                        <input type="text" name="sun-name" id="sun-name" class="sun-name">
+                        <input type="text" name="sun-name" id="sun-name" class="sun-name" maxlength="15">
     
                         <label for="spectrum" class="spectrum">Choose your star's spectral type: </label>
                         <select id="spectrum" name="spectrum" class="spectrum">
@@ -79,7 +79,7 @@
                     <h2>Now add planet number <span id="p-number">test</span>!</h2>
                      <form id="new-planet-form">
                         <label class="planet-input" for="planet-name">Name your planet: </label>
-                        <input class="planet-input" type="text" name="planet-name" id="planet-name">
+                        <input class="planet-input" type="text" name="planet-name" id="planet-name" maxlength="20">
 
                         <label class="planet-input" for="composition">Choose your planet's composition</label>
                         <select class="planet-input" id="composition" name="composition">
