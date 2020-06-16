@@ -1,34 +1,27 @@
 div.ss-container {
     width: 750px;
     height: 495px;
-    box-shadow: 0 0 2pt 1px;
+    box-shadow: 0 0 1pt 1px;
     position: relative;
     font-size: 16px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 main {
-    margin-top: 65px;
-    margin-left: 15em;
+    margin-top: 5em;
 }
 
 nav {
-  background-image: url(https://images.unsplash.com/photo-1465101162946-4377e57745c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1957&q=80);
-    background-color: grey;
+    background-image: url("img/header_galaxy.jpg");
+    background-size: cover;
+    background-color: rgb(0, 0, 78);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     margin-left: -10px;
-    justify-content: center;
     text-align: center;
-}
-
-nav h1 {
-    font-size: 1.5em;
-    line-height: 0.5em;
-    font-family: Tahoma, Geneva, sans-serif;
-    font-weight: 1;
-    color: white;
 }
 
 #sidebar {
@@ -38,22 +31,30 @@ nav h1 {
     top: 0;
     left: 0;
     padding-top: 100px;
-    background-color: rgb(115, 143, 180);
+    background-color: rgb(156, 185, 223);
     display: flex;
     flex-direction: column;
-  
+}
+
+div.right.mirror {
+    height: 100%;
+    width: 220px;
+    position: fixed;
+    top: 0;
+    right: 0px;
+    padding-top: 100px;
+    background-color: rgb(156, 185, 223);
 }
 
 #sidebar button, #sidebar h3 {
     padding: 8px;
     text-decoration: none;
     font-size: 20px;
-    color: rgb(61, 61, 61);
+    color: rgb(51, 51, 51);
     display: block;
     background:none;
     border: none;
     width: 100%;
-    font-family: Tahoma, Geneva, sans-serif;
     text-align: center;
 }
 
@@ -78,7 +79,6 @@ h1, h2, h3, h4, h5, p, li, button, label, a {
 
 .space h2 {
   text-align: center;
-  line-height: 100%;
   padding-top: 0.25em;
   font-size: 2em;
 }
@@ -134,15 +134,10 @@ input[type="radio"] {
 #rings {
   width: 0.75em;
   height: 0.75em;
- 
 }
 
 label.number5 {
   margin-right: 1em;
-}
-
-.og>h1, .og>h2, .og>h3, .og>h4, .og>h5, .og>p {
-    color: white;
 }
 
 ul {
@@ -151,7 +146,8 @@ ul {
   margin: 0;
 }
 
-.star {
+/* Solar System Styling */
+.star, .orbit, .planet {
     position: absolute;
     top: 50%;
     left: 30%;
@@ -223,10 +219,6 @@ ul {
   }
 
   .orbit {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    border-radius: 50%;
     z-index: 1;
     border: 1px solid rgb(255, 255, 255, 0.4);
   }
@@ -262,15 +254,8 @@ ul {
     margin-left: -12em;
   }
   
-
   .planet {
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    border-radius: 50%;
     z-index: 10;
-    
-    
     background-color: orange;
     box-shadow: inset 1em 0 0.5em rgba(26, 17, 17, 0.4);
   }
@@ -418,6 +403,7 @@ ul {
     box-shadow: none;
   }
 
+  /* Solar Sytem text and mouseover box styling */
   .names {
     position: absolute;
     top: 20%;
@@ -427,22 +413,34 @@ ul {
   }
 
   .names h3, .names li, .info h3, .info li {
-    text-align: center;
+    text-align: left;
     font-size: 180%;
-    color: rgb(144, 144, 214);
+    color: rgb(123, 172, 187);
+  }
+
+  .info h3 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .names h3 {
+    margin-left: 1em;
+    color: rgb(176, 227, 243);
   }
 
   .info {
     position: absolute;
     top: 20%;
-    left: 45%;
+    left: 41.5%;
     height: auto;
-    width: 15em;
+    width: 19em;
     border: 1px solid white;
     background-color: rgba(18, 25, 92, 0.7);
     z-index: 99;
     overflow: hidden;
-    font-size: 12px;
+    font-size: 0.55em;
+    padding: 1em;
+    box-sizing: border-box;
   }
 
   .orbit.selected {
