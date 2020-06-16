@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const indexBtn = document.querySelector("#ss-index");
     indexBtn.addEventListener("click", () => getSolarSystems());
+
+    const resouceBtn = document.querySelector("#resources");
+    resouceBtn.addEventListener("click", () => getResourcePage())
 })
 
 function renderSSForm() {
@@ -180,6 +183,14 @@ function getSolarSystems() {
             newSolarSystem.renderSolarSystem();
         });
     })
+}
+
+function getResourcePage() {
+    const welcome = document.querySelector("#welcome");
+    welcome.setAttribute("class", "hidden");
+    
+    document.querySelector("#resource-links").setAttribute("class", "");
+    
 }
 
 

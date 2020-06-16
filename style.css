@@ -110,7 +110,9 @@ input[type="text"] {
     width: 10em;
 }
 
-
+#resource-links a {
+  display: block;
+}
 
 label, input, select {
   display: block;
