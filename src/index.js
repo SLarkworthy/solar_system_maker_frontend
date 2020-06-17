@@ -1,7 +1,7 @@
 const BASE = "http://localhost:3000/api/v1"
 
 document.addEventListener('DOMContentLoaded', () => {
-   
+
     const welcomeBtn = document.querySelector("#new-ss-btn");
     welcomeBtn.addEventListener("click", () => renderSSForm());
     
@@ -39,6 +39,7 @@ function saveSolarSystem(ssName) {
     .then(solarSystem => {
         renderStarForm(solarSystem.data.id);
     })
+    .catch(error => console.log(error))
 }
 
 function renderStarForm(solarSystemID) {
@@ -73,6 +74,7 @@ function saveSun(sunName, sunSpectrum, solarSystemID) {
         
         renderPlanetNumberForm(ssID);
     })
+    .catch(error => console.log(error))
 }
 
 function renderPlanetNumberForm(ssID) {
@@ -157,7 +159,8 @@ function savePlanet(planetName, composition, size, rings, ssID, planetNumber, co
        } else {
            resetForm(count);
        }
-    });
+    })
+    .catch(error => console.log(error))
 }
 
 function getSolarSystem(solarSystemID) {
@@ -186,11 +189,11 @@ function getSolarSystems() {
 }
 
 function getResourcePage() {
-    const welcome = document.querySelector("#welcome");
-    welcome.setAttribute("class", "hidden");
-    
-    document.querySelector("#resource-links").setAttribute("class", "");
-    
+    document.querySelector("main").innerHTML = `<div class="ss-container og"><div id="resource-links">
+        <a href="https://starparty.com/topics/astronomy/stars/the-morgan-keenan-system/" target="_blank">The Morgan-Keenan System</a>
+        <a href="https://astrobackyard.com/types-of-stars/" target="_blank">The Morgan-Keenan System with visual diagram</a>
+        <a href="https://nineplanets.org/kids/planets/" target="_blank">Simple planet composition</a>
+    </div></div>`
 }
 
 

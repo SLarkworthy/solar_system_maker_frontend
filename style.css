@@ -4,12 +4,11 @@ div.ss-container {
     box-shadow: 0 0 1pt 1px;
     position: relative;
     font-size: 16px;
-    left: 50%;
-    transform: translateX(-50%);
 }
 
 main {
     margin-top: 5em;
+    margin-left: 23em;
 }
 
 nav {
@@ -29,22 +28,13 @@ nav {
     width: 220px;
     position: fixed;
     top: 0;
-    left: 0;
+    left: 5em;
     padding-top: 100px;
     background-color: rgb(156, 185, 223);
     display: flex;
     flex-direction: column;
 }
 
-div.right.mirror {
-    height: 100%;
-    width: 220px;
-    position: fixed;
-    top: 0;
-    right: 0px;
-    padding-top: 100px;
-    background-color: rgb(156, 185, 223);
-}
 
 #sidebar button, #sidebar h3 {
     padding: 8px;
@@ -434,13 +424,14 @@ ul {
     left: 41.5%;
     height: auto;
     width: 19em;
-    border: 1px solid white;
-    background-color: rgba(18, 25, 92, 0.7);
+    border: 1px solid rgb(173, 172, 172);
+    background-color: rgba(18, 25, 92, 0.9);
     z-index: 99;
     overflow: hidden;
     font-size: 0.55em;
     padding: 1em;
     box-sizing: border-box;
+    border-radius: 10%;
   }
 
   .orbit.selected {
