@@ -16,11 +16,11 @@ function renderSSForm() {
     const welcome = document.querySelector("#welcome");
     welcome.setAttribute("class", "hidden");
 
-    const ssForm = document.querySelector("#ss-form-container");
-    ssForm.setAttribute("class", "");
+    const ssFormContainer = document.querySelector("#ss-form-container");
+    ssFormContainer.setAttribute("class", "");
     
-    const createBtn = document.querySelector("#create-button");
-    createBtn.addEventListener("click", (e) => {
+    const ssForm = document.querySelector("#new-solar-system-form");
+    ssForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const ssName = document.querySelector("#ss-name").value;
         saveSolarSystem(ssName);
@@ -37,7 +37,13 @@ function saveSolarSystem(ssName) {
     })
     .then(response => response.json())
     .then(solarSystem => {
-        renderStarForm(solarSystem.data.id);
+        if (solarSystem.data) {
+            renderStarForm(solarSystem.data.id);
+        } else {
+            for (error of solarSystem.errors) {
+                console.log(error);
+            }
+        }
     })
     .catch(error => console.log(error))
 }
@@ -49,8 +55,8 @@ function renderStarForm(solarSystemID) {
     const sunForm = document.querySelector("#sun-form-container");
     sunForm.setAttribute("class", "");
 
-    const createSunBtn = document.querySelector("#create-sun-button");
-    createSunBtn.addEventListener("click", (e) => {
+    const createSunForm = document.querySelector("#new-sun-form");
+    createSunForm.addEventListener("submit", (e) => {
         e.preventDefault();
         const sunName = document.querySelector("#sun-name").value;
         const sunSpectrum = document.querySelector("#spectrum").value;
@@ -70,9 +76,14 @@ function saveSun(sunName, sunSpectrum, solarSystemID) {
     })
     .then(response => response.json())
     .then(star => {
-        const ssID = star.data.attributes.solar_system_id;
-        
-        renderPlanetNumberForm(ssID);
+        if (star.data) {
+            const ssID = star.data.attributes.solar_system_id;
+            renderPlanetNumberForm(ssID);
+        } else {
+            for (error of star.errors) {
+            console.log(error);
+        }
+        }
     })
     .catch(error => console.log(error))
 }
@@ -81,11 +92,11 @@ function renderPlanetNumberForm(ssID) {
     const sunForm = document.querySelector("#sun-form-container");
     sunForm.setAttribute("class", "hidden");
 
-    const planetNumerContainer = document.querySelector("#planet-number-container");
-    planetNumerContainer.setAttribute("class", "");
+    const planetNumberContainer = document.querySelector("#planet-number-container");
+    planetNumberContainer.setAttribute("class", "");
 
-    const planetNumberBtn = document.querySelector("#p-number-button");
-    planetNumberBtn.addEventListener("click", (e) => {
+    const planetNumberForm = document.querySelector("#planet-number-form");
+    planetNumberForm.addEventListener("submit", (e) => {
         e.preventDefault();
         
         const planetNumberString = (function() {
@@ -105,8 +116,8 @@ function renderPlanetNumberForm(ssID) {
 
 function renderPlanetForm(ssID, planetNumber, count=0) {
     
-    const planetNumerContainer = document.querySelector("#planet-number-container");
-    planetNumerContainer.setAttribute("class", "hidden");
+    const planetNumberContainer = document.querySelector("#planet-number-container");
+    planetNumberContainer.setAttribute("class", "hidden");
 
     const planetFormCon = document.querySelector("#planet-form-container");
     planetFormCon.setAttribute("class", "");
