@@ -12,7 +12,7 @@ class SolarSystem {
         let div = document.createElement("div");
     
         div.setAttribute("class", "ss-container space");
-        div.setAttribute("data-id", this.id);
+        div.dataset.id = this.id;
         div.innerHTML = `<h2>${this.name}</h2>`
     
         if (this.star !== null && this.planets.length !== 0) {
@@ -28,6 +28,5 @@ class SolarSystem {
         }
     }
 }
-
 
 SolarSystem.all = [];

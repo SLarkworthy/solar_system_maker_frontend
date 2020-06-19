@@ -106,7 +106,7 @@ function renderPlanetNumberForm(ssID) {
                     return radioNumbers[i].value;
                 }
             }
-        })()
+        })();
 
         const planetNumber = parseInt(planetNumberString);
         renderPlanetForm(ssID, planetNumber);
@@ -125,19 +125,19 @@ function renderPlanetForm(ssID, planetNumber, count=0) {
     const num = document.querySelector("span#p-number");
     num.innerText = (count + 1);
 
-        const planetForm = document.querySelector("#new-planet-form");
-        planetForm.addEventListener("submit", (e) => {
-            e.preventDefault();
-            const num = document.querySelector("span#p-number");
-            const planetName = document.querySelector("#planet-name").value;
-            const composition = document.querySelector("#composition").value;
-            const size = document.querySelector("#size").value;
-            const rings = document.querySelector("#rings").checked;
-            count = parseInt(num.innerText) - 1;
-            if (planetName !== "") {
-                savePlanet(planetName, composition, size, rings, ssID, planetNumber, count);
-            }
-        })
+    const planetForm = document.querySelector("#new-planet-form");
+    planetForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const num = document.querySelector("span#p-number");
+        const planetName = document.querySelector("#planet-name").value;
+        const composition = document.querySelector("#composition").value;
+        const size = document.querySelector("#size").value;
+        const rings = document.querySelector("#rings").checked;
+        count = parseInt(num.innerText) - 1;
+        if (planetName !== "") {
+            savePlanet(planetName, composition, size, rings, ssID, planetNumber, count);
+        }
+    })
 }
 
 function resetForm(count) {
@@ -147,8 +147,6 @@ function resetForm(count) {
     const num = document.querySelector("span#p-number");
     num.innerText = (count + 1);
 }
-
-    
 
 function savePlanet(planetName, composition, size, rings, ssID, planetNumber, count) {
     fetch(`${BASE}/planets`, {

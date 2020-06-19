@@ -43,9 +43,7 @@ class Planet {
         planetDiv.setAttribute("class", `planet ${this.number} ${this.size} ${this.composition}`);
         ringDiv.setAttribute("class", `planet ${this.number} ${this.size} rings`);
 
-        ssDiv.appendChild(planetInfoDiv);
-        ssDiv.appendChild(orbitDiv);
-        ssDiv.appendChild(planetDiv);
+        ssDiv.append(planetInfoDiv, orbitDiv, planetDiv);
         if (this.rings === true) {
             ssDiv.appendChild(ringDiv);
         }

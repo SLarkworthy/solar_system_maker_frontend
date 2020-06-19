@@ -13,8 +13,8 @@ class Star {
         const starDiv = document.createElement("div");
         starDiv.setAttribute("class", `star ${this.spectral_type}`);
 
-        const NameDiv = document.createElement("div");
-        NameDiv.classList.add("names");
+        const nameDiv = document.createElement("div");
+        nameDiv.classList.add("names");
         const h3 = document.createElement("h3");
         h3.innerText = this.name;
         const ul = document.createElement("ul");
@@ -24,7 +24,7 @@ class Star {
         h3.addEventListener("mouseout", () => {
             infoDiv.classList.add("hidden");
         })
-        NameDiv.append(h3, ul);
+        nameDiv.append(h3, ul);
     
         const infoDiv = document.createElement("div");
         infoDiv.setAttribute("class", "info hidden");
@@ -34,9 +34,7 @@ class Star {
                 <li>Star's spectral type: ${this.spectral_type}</li>
             </ul>`;
 
-        ssDiv.appendChild(infoDiv);
-        ssDiv.appendChild(NameDiv);
-        ssDiv.appendChild(starDiv);
+        ssDiv.append(infoDiv, nameDiv, starDiv);
     }
 }
 
