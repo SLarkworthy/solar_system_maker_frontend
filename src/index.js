@@ -180,7 +180,6 @@ function getSolarSystem(solarSystemID) {
 
         let newSolarSystem = new SolarSystem(solarSystem.data)
         newSolarSystem.renderSolarSystem();
-        
     })
 }
 

@@ -23,6 +23,7 @@ class SolarSystem {
 
         for (let i=0; i < this.planets.length; i++) {
             const NUMS = ["first", "second", "third", "fourth", "fifth"];
+            
             let newPlanet = new Planet(this.planets[i], NUMS[i]);
             newPlanet.renderPlanet();
         }
