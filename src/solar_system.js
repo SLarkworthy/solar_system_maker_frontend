@@ -13,11 +13,11 @@ class SolarSystem {
     
         div.setAttribute("class", "ss-container space");
         div.dataset.id = this.id;
-        div.innerHTML = `<h2>${this.name}</h2>`
+        div.innerHTML = `<h2>${this.name}</h2>`;
     
         if (this.star !== null && this.planets.length !== 0) {
             main.appendChild(div);
-            let newStar = new Star(this.star)
+            let newStar = new Star(this.star);
             newStar.renderStar();
         }
 

@@ -16,7 +16,7 @@ class Planet {
         const planetDiv = document.createElement("div");
         const ringDiv = document.createElement("div");
 
-        const nameUl = document.querySelector(`[data-id="${this.solar_system_id}"] div.names ul`)
+        const nameUl = document.querySelector(`[data-id="${this.solar_system_id}"] div.names ul`);
         const li = document.createElement("li");
         li.innerText = this.name;
         li.addEventListener("mouseover", () => {

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     indexBtn.addEventListener("click", () => getSolarSystems());
 
     const resouceBtn = document.querySelector("#resources");
-    resouceBtn.addEventListener("click", () => getResourcePage())
+    resouceBtn.addEventListener("click", () => getResourcePage());
 })
 
 function renderSSForm() {
@@ -178,7 +178,7 @@ function getSolarSystem(solarSystemID) {
     .then(solarSystem => {
         document.querySelector("main").innerHTML = "";
 
-        let newSolarSystem = new SolarSystem(solarSystem.data)
+        let newSolarSystem = new SolarSystem(solarSystem.data);
         newSolarSystem.renderSolarSystem();
     })
 }
@@ -190,7 +190,7 @@ function getSolarSystems() {
         document.querySelector("main").innerHTML = "";
 
         solarSystems.data.forEach(solarSystem => {
-            let newSolarSystem = new SolarSystem(solarSystem)
+            let newSolarSystem = new SolarSystem(solarSystem);
             newSolarSystem.renderSolarSystem();
         });
     })
