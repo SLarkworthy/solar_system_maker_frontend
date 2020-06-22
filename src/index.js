@@ -2,11 +2,10 @@ const BASE = "http://localhost:3000/api/v1"
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    getSolarSystems(); 
+
     const welcomeBtn = document.querySelector("#new-ss-btn");
     welcomeBtn.addEventListener("click", () => renderSSForm());
-    
-    const indexBtn = document.querySelector("#ss-index");
-    indexBtn.addEventListener("click", () => getSolarSystems());
 
     const resouceBtn = document.querySelector("#resources");
     resouceBtn.addEventListener("click", () => getResourcePage());
@@ -187,12 +186,19 @@ function getSolarSystems() {
     fetch(`${BASE}/solar_systems`)
     .then(response => response.json())
     .then(solarSystems => {
-        document.querySelector("main").innerHTML = "";
-
         solarSystems.data.forEach(solarSystem => {
-            let newSolarSystem = new SolarSystem(solarSystem);
-            newSolarSystem.renderSolarSystem();
+            new SolarSystem(solarSystem);
+
+            const indexBtn = document.querySelector("#ss-index");
+            indexBtn.addEventListener("click", () => renderAllSolarSystems());
         });
+    })
+}
+
+function renderAllSolarSystems() {
+    document.querySelector("main").innerHTML = "";
+    SolarSystem.all.forEach(solarSystem => {
+        solarSystem.renderSolarSystem();
     })
 }
 

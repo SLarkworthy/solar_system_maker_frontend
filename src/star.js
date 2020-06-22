@@ -4,7 +4,6 @@ class Star {
         this.name = star.name;
         this.spectral_type = star.spectral_type;
         this.solar_system_id = star.solar_system_id;
-        Star.all.push(this);
     }
 
     renderStar() {
@@ -37,5 +36,3 @@ class Star {
         ssDiv.append(infoDiv, nameDiv, starDiv);
     }
 }
-
-Star.all = [];

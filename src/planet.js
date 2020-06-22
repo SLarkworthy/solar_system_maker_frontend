@@ -7,7 +7,6 @@ class Planet {
         this.size = planet.size;
         this.rings = planet.rings;
         this.solar_system_id = planet.solar_system_id
-        Planet.all.push(this);
     }
 
     renderPlanet() {
@@ -49,5 +48,3 @@ class Planet {
         }
     }
 }
-
-Planet.all = [];
