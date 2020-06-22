@@ -38,7 +38,7 @@ function saveSolarSystem(ssName) {
     .then(solarSystem => {
         if (solarSystem.data) {
             renderStarForm(solarSystem.data.id);
-        } else {
+        } else if (solarSystem.errors) {
             for (error of solarSystem.errors) {
                 console.log(error);
             }
@@ -78,7 +78,7 @@ function saveSun(sunName, sunSpectrum, solarSystemID) {
         if (star.data) {
             const ssID = star.data.attributes.solar_system_id;
             renderPlanetNumberForm(ssID);
-        } else {
+        } else  if (solarSystem.errors) {
             for (error of star.errors) {
             console.log(error);
         }
