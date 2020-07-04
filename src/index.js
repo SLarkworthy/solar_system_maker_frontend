@@ -1,4 +1,4 @@
-const BASE = "http://solar-system-maker.herokuapp.com/api/v1"
+const BASE = "https://solar-system-maker.herokuapp.com/api/v1"
 
 document.addEventListener('DOMContentLoaded', () => {
 
