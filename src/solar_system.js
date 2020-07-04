@@ -28,6 +28,7 @@ class SolarSystem {
             newPlanet.renderPlanet();
         }
     }
+    
 }
 
 SolarSystem.all = [];

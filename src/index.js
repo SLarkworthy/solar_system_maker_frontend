@@ -1,4 +1,4 @@
-const BASE = "http://localhost:3000/api/v1"
+const BASE = "http://solar-system-maker.herokuapp.com/api/v1"
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -39,6 +39,7 @@ function saveSolarSystem(ssName) {
         if (solarSystem.data) {
             renderStarForm(solarSystem.data.id);
         } else if (solarSystem.errors) {
+           // throw new Error()
             for (error of solarSystem.errors) {
                 console.log(error);
             }
@@ -75,6 +76,7 @@ function saveSun(sunName, sunSpectrum, solarSystemID) {
     })
     .then(response => response.json())
     .then(star => {
+        // if (!star.ok)
         if (star.data) {
             const ssID = star.data.attributes.solar_system_id;
             renderPlanetNumberForm(ssID);
@@ -161,12 +163,14 @@ function savePlanet(planetName, composition, size, rings, ssID, planetNumber, co
     })
     .then(response => response.json())
     .then(planet => {
-       count++
-       if (count === planetNumber) {
-            getSolarSystem(planet.solar_system_id);
-       } else {
-           resetForm(count);
-       }
+        if (planet.solar_system_id) {
+            count++
+            if (count === planetNumber) {
+                getSolarSystem(planet.solar_system_id);
+            } else {
+                resetForm(count);
+            }
+        }
     })
     .catch(error => console.log(error))
 }
@@ -196,8 +200,22 @@ function getSolarSystems() {
 }
 
 function renderAllSolarSystems() {
+    const sortedSolarSystem = [...SolarSystem.all]
+    sortedSolarSystem.sort((a, b) => 
+    {
+        const nameA = a.name.toUpperCase();
+        const nameB = b.name.toUpperCase();
+        if (nameA > nameB) {
+            return 1;
+        } else if (nameB > nameA) {
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+    );
     document.querySelector("main").innerHTML = "";
-    SolarSystem.all.forEach(solarSystem => {
+    sortedSolarSystem.forEach(solarSystem => {
         solarSystem.renderSolarSystem();
     })
 }
